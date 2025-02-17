@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Utils;
@@ -30,30 +31,34 @@ namespace HexGrid
         
             RasterHexOnSprite();
         }
-    
+
+        private void OnValidate() => RasterHexOnSprite();
+
 
         #region SPRITE
     
         public void RasterHexOnSprite()
         {
             if (buildFromVertices)
-                _vertices = BuildVertices_PivotCorner(res, flat);
+                _vertices = BuildVertices_PivotCorner(size, flat);
         
-            Rect rect = GetHexRect(res, flat);
-            int width = Mathf.CeilToInt(rect.width);
-            int height = Mathf.CeilToInt(rect.height);
-        
-            var tex = new Texture2D(width, height) { filterMode = FilterMode.Point };
+            Rect rect = GetHexRect(size, flat);
+            int width = Mathf.CeilToInt(rect.width * res);
+            int height = Mathf.CeilToInt(rect.height * res);
+            
+            Rect imgRect = new(0, 0, width, height);
+            
+            var tex = new Texture2D(width, height) { filterMode = FilterMode.Point, alphaIsTransparency = true };
             Color[] colors = new Color[width * height];
         
             for (var y = 0; y < height; y++)
             for (var x = 0; x < width; x++)
-                colors[y * width + x] = PointOnHex(new Vector2(x, y)) ? Color.white : Color.clear;
+                colors[y * width + x] = PointOnHex(new Vector2(x, y) / imgRect.size * rect.size) ? Color.white : Color.clear;
     
             tex.SetPixels(colors);
             tex.Apply();
         
-            _sr.sprite = Sprite.Create(tex, rect, Vector2.one * 0.5f, res / size);
+            _sr.sprite = Sprite.Create(tex, imgRect, Vector2.one * 0.5f, res, 0);
         }
 
         public void CreateSpriteAsset()
@@ -127,8 +132,8 @@ namespace HexGrid
         private bool PointOnHex(Vector2 p)
         {
             return buildFromVertices 
-                ? PointOnHex_LeftOfEdge(p, res, _vertices, flat) 
-                : PointOnHex_Barycentric(p, res, flat);
+                ? PointOnHex_LeftOfEdge(p, size, _vertices, flat) 
+                : PointOnHex_Barycentric(p, size, flat);
         }
     
         public static bool PointOnHex_LeftOfEdge(Vector2 p, float size = 1, Vector2[] vertices = null, bool flat = false)
@@ -153,7 +158,7 @@ namespace HexGrid
         public static bool PointOnHex_Barycentric(Vector2 p, float size = 1, bool flat = false)
         {
             Rect rect = GetHexRect(size, flat);
-            var center = new Vector2(rect.width / 2f, rect.height / 2f);
+            Vector2 center = rect.center;
         
             // Check if point is outside bounding circle
             if (Vector2.Distance(center, p) > size)
@@ -184,10 +189,15 @@ namespace HexGrid
 
             return true;
         }
+        
+        #endregion
 
+        
+        #region DEBUG
+        
         private void OnDrawGizmos()
         {
-            Rect rect = GetHexRect(size);
+            Rect rect = GetHexRect(size, flat);
             Vector2 center = Vector2.zero;
         
             Gizmos.color = Color.red;
@@ -195,10 +205,10 @@ namespace HexGrid
         
             Gizmos.color = Color.green;
             for (var i = 0; i < 6; i++)
-                Gizmos.DrawLine(center, center + (Vector2.right * size).RotateVector(i * 60));
+                Gizmos.DrawLine(center, center + ((flat ? Vector2.right : Vector2.up) * size).RotateVector(i * 60));
         
-            var vertices = BuildVertices_PivotCorner(rect.width);
-            center = new Vector2(size, Mathf.Sqrt(3) * size / 2f);
+            var vertices = BuildVertices_PivotCorner(size, flat);
+            center = rect.center;
             Gizmos.color = Color.blue;
             for (var i = 0; i < 6; i++)
             {
@@ -206,13 +216,7 @@ namespace HexGrid
                 Gizmos.DrawLine(vertices[i] - center, vertices[(i + 1) % 6] - center);
             }
         }
-    
+
         #endregion
-
-    
-    
-
-
-    
     }
 }
