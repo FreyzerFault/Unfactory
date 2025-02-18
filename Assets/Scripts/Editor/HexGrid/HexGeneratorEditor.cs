@@ -1,8 +1,8 @@
 using UnityEditor;
 using UnityEngine;
-using HexGrid;
+using Unfactory.Hex;
 
-namespace Editor.HexGrid
+namespace Unfactory.Editor.HexGrid
 {
     [CustomEditor(typeof(HexGenerator), true)]
     public class HexGeneratorEditor : UnityEditor.Editor
@@ -13,10 +13,11 @@ namespace Editor.HexGrid
 
             DrawDefaultInspector();
             if (GUILayout.Button("Generate Hex")) 
-                gen.RasterHexOnSprite();
-        
-            if (GUILayout.Button("Create Sprite")) 
-                gen.CreateSpriteAsset();
+                gen.GenerateHex();
+            
+            if (GUILayout.Button($"Create {gen.renderType} Asset")) 
+                gen.SaveAsset();
         }
     }
+    
 }

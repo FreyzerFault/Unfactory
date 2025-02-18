@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Utils
+namespace Unfactory.Utils
 {
     public static class VectorUtils
     {

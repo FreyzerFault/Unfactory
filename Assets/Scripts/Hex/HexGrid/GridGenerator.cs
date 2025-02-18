@@ -1,8 +1,8 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Random = System.Random;
+using Unity.Cinemachine;
 
 // This source code is used for the video. It obviously requires heavy alterations to be used in a real project.
 public class GridGenerator : MonoBehaviour
@@ -102,7 +102,7 @@ public class GridGenerator : MonoBehaviour
         var vertical = bounds.size.y;
         var horizontal = bounds.size.x * _cam.pixelHeight / _cam.pixelWidth;
 
-        _cameraPositionTarget = bounds.center + Vector3.back;
+        _cameraPositionTarget = bounds.center + Vector3.back * 10;
         _cameraSizeTarget = Mathf.Max(horizontal, vertical) * 0.5f;
     }
 }

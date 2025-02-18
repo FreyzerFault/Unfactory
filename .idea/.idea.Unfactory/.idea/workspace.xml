@@ -5,19 +5,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bb7c3050-1971-4f8c-955d-e44e323c63db" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.Unfactory/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Unfactory/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Unfactory/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/README.md.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Readme.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Readme.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/HexGrid.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/HexGrid/HexGeneratorEditor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/HexGrid/HexGeneratorEditor.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Forest Tile.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Forest Tile.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Grass Tile.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Grass Tile.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Hex Generator.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Hex Generator.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Hex Tile.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Hex Tile.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Sprites/Hexagon/Hex 0,5m [256x256].asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/Hexagon/Hex 0,5m [256x256].asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Runtime/HexGrid/HexGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Runtime/HexGrid/HexGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sprites/Hexagon/Hexagon 1024.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/Hexagon/Hexagon 1024.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sprites/Hexagon/Hexagon 256.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/Hexagon/Hexagon 256.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sprites/Hexagon/Hexagon 512.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/Hexagon/Hexagon 512.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sprites/Hexagon/Hexagon pointy 1024.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/Hexagon/Hexagon pointy 1024.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sprites/Hexagon/Hexagon pointy 256.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/Hexagon/Hexagon pointy 256.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sprites/Hexagon/Hexagon pointy 512.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/Hexagon/Hexagon pointy 512.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Runtime.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Runtime/HexGrid.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Runtime/HexGrid/Default Grid Config.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Runtime/HexGrid/Default Grid Config.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Runtime/HexGrid/GridConfig.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Runtime/HexGrid/GridConfig.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Runtime/HexGrid/GridGenerator.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Runtime/HexGrid/GridGenerator.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Runtime/HexGrid/HexGenerator.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Runtime/HexGrid/HexGenerator.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Runtime/HexGrid/HexTile.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Runtime/HexGrid/HexTile.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Runtime/Utils.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Runtime/Utils/VectorUtils.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Runtime/Utils/VectorUtils.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main Scene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/DefaultVolumeProfile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/DefaultVolumeProfile.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,22 +49,29 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "FreyzerFault"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;FreyzerFault&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "git@github.com:FreyzerFault/Unfactory.git",
-    "accountId": "717a1f5b-a02e-4774-8f94-9043f0103de9"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:FreyzerFault/Unfactory.git&quot;,
+    &quot;accountId&quot;: &quot;717a1f5b-a02e-4774-8f94-9043f0103de9&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 3
-}]]></component>
+}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fde3c13fb32a45329a891b3df03f79081dee00/ac/a432f840/Vector2.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Hex/HexGenerator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Packages/David-Unity-Utils/Runtime/Camera/CamTargetGroupHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Packages/David-Unity-Utils/Runtime/Camera/CameraManager.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2tBcEuXrheWvVR6wOkqB8TFeBbw" />
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
@@ -53,6 +82,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true"
   }
@@ -109,10 +139,21 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1739828802035</updated>
-      <workItem from="1739828804262" duration="2275000" />
+      <workItem from="1739828804262" duration="2597000" />
+      <workItem from="1739895602092" duration="11971000" />
     </task>
+    <task id="LOCAL-00001" summary="Hexagon Generator Fix">
+      <option name="closed" value="true" />
+      <created>1739831483764</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1739831483764</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityProjectDiscoverer">
     <option name="hasUnityReference" value="true" />
@@ -122,5 +163,7 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="Hexagon Generator Fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Hexagon Generator Fix" />
   </component>
 </project>

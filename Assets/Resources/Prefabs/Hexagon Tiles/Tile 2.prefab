@@ -54,19 +54,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6205074583665183699, guid: 4e0a675bfb0677d4a8cb14c52e3e5da7, type: 3}
       propertyPath: m_Color.b
-      value: 0.030088613
+      value: 0.009678657
       objectReference: {fileID: 0}
     - target: {fileID: 6205074583665183699, guid: 4e0a675bfb0677d4a8cb14c52e3e5da7, type: 3}
       propertyPath: m_Color.g
-      value: 0.33692718
+      value: 0.4103772
       objectReference: {fileID: 0}
     - target: {fileID: 6205074583665183699, guid: 4e0a675bfb0677d4a8cb14c52e3e5da7, type: 3}
       propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6205074583665183699, guid: 4e0a675bfb0677d4a8cb14c52e3e5da7, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
+      value: 0.10238932
       objectReference: {fileID: 0}
     - target: {fileID: 6513303287236982233, guid: 4e0a675bfb0677d4a8cb14c52e3e5da7, type: 3}
       propertyPath: m_Color.b
@@ -86,8 +82,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7705163624715185018, guid: 4e0a675bfb0677d4a8cb14c52e3e5da7, type: 3}
       propertyPath: m_Name
-      value: Forest Tile
+      value: Tile 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8408330926486520148, guid: 4e0a675bfb0677d4a8cb14c52e3e5da7, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ab5e715e011f7c44d8be71abeca98e29, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
