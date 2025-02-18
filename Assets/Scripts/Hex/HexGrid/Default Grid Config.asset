@@ -16,5 +16,5 @@ MonoBehaviour:
   Layout: 1
   GrassPrefab: {fileID: 4200647941115012452, guid: 9378cd84a36bcfd47912ea601bfe11f1, type: 3}
   ForestPrefab: {fileID: 4217091458173415374, guid: 7bc3060ce1ba47c4596f48f2d1e4ed69, type: 3}
-  CellSize: {x: 1, y: 1, z: 0}
+  CellSize: {x: 1, y: 1.414214, z: 0}
   GridSwizzle: 0

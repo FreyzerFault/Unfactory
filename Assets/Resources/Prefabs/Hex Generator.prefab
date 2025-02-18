@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   renderType: 1
   flat: 0
-  size: 0.5
+  size: 0.57735026
 --- !u!1 &4281615137767709148
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,7 +129,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 0.8671875}
+  m_Size: {x: 0.8671875, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
@@ -151,7 +151,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7635332865427540269
 Transform:
   m_ObjectHideFlags: 0
@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   renderType: 0
-  flat: 1
+  flat: 0
   size: 0.5
   res: 256
 --- !u!1 &5260189120236983686
