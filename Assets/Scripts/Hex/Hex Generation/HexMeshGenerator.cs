@@ -2,7 +2,7 @@ using System.Linq;
 using DavidUtils.ExtensionMethods;
 using UnityEngine;
 
-namespace Unfactory.Hex
+namespace Hex.Hex_Generation
 {
     public class HexMeshGenerator : HexGenerator
     {
@@ -44,9 +44,9 @@ namespace Unfactory.Hex
                     6, 1, 0,
                     6, 0, 5,
                 },
-                uv = Vertices.Select(v => v / HexRect.size + Vector2.one * 0.5f).Append(Vector2.one * 0.5f).ToArray(),
+                uv = Vertices.Select(v => v / hexagon.Rect.size + Vector2.one * 0.5f).Append(Vector2.one * 0.5f).ToArray(),
                 normals = Vector3.back.ToFilledArray(7).ToArray(),
-                name = $"Hex {size}m"
+                name = $"Hex {hexagon.size}m"
             };
         }
 

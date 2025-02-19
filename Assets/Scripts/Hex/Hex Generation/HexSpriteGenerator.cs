@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Unfactory.Hex
+namespace Hex.Hex_Generation
 {
     public class HexSpriteGenerator : HexGenerator
     {
@@ -29,8 +29,8 @@ namespace Unfactory.Hex
     
         public override void GenerateHex()
         {
-            int imgWidth = Mathf.CeilToInt(HexRect.width * res);
-            int imgHeight = Mathf.CeilToInt(HexRect.height * res);
+            int imgWidth = Mathf.CeilToInt(hexagon.Width * res);
+            int imgHeight = Mathf.CeilToInt(hexagon.Height * res);
             Rect imgRect = new(0, 0, imgWidth, imgHeight);
             
             Texture2D tex = new(imgWidth, imgHeight) { filterMode = FilterMode.Point, alphaIsTransparency = true };
@@ -39,7 +39,7 @@ namespace Unfactory.Hex
             for (var y = 0; y < imgHeight; y++)
             for (var x = 0; x < imgWidth; x++)
             {
-                bool isOn = PointOnHex(new Vector2(x, y) / imgRect.size * HexRect.size - HexRect.center);
+                bool isOn = hexagon.PointOnHex(new Vector2(x, y) / imgRect.size * hexagon.Rect.size - hexagon.Rect.center);
                 colors[y * imgWidth + x] = isOn ? Color.white : Color.clear;
             }
     
@@ -53,7 +53,7 @@ namespace Unfactory.Hex
         #region ASSET SAVING
 
         public override void SaveAsset() => 
-            SaveSpriteAsset(_sr.sprite, $"Hex {size}m [{res}x{res}]");
+            SaveSpriteAsset(_sr.sprite, $"Hex {hexagon.size}m [{res}x{res}]");
 
         private static void SaveSpriteAsset(Sprite sprite, string name = null)
         {

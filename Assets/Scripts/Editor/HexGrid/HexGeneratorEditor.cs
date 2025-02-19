@@ -1,8 +1,8 @@
+using Hex.Hex_Generation;
 using UnityEditor;
 using UnityEngine;
-using Unfactory.Hex;
 
-namespace Unfactory.Editor.HexGrid
+namespace Editor.HexGrid
 {
     [CustomEditor(typeof(HexGenerator), true)]
     public class HexGeneratorEditor : UnityEditor.Editor
