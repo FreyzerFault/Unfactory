@@ -1,4 +1,4 @@
-using System;
+using System.Linq;
 using DavidUtils.ExtensionMethods;
 using DavidUtils.Geometry;
 using Gameplay;
@@ -11,16 +11,11 @@ namespace Hex.Hex_Interaction
     public class HexInteractible : MonoBehaviour, IInteractible
     {
         public Hexagon hexagon;
-
-        public Material baseMaterial;
-        public Material hoverMaterial;
-        [FormerlySerializedAs("selectMaterial")] public Material clickMaterial;
-
-        private Material Material
-        {
-            get => mr.material;
-            set => mr.material = value;
-        }
+        
+        public bool showWedges = true;
+        
+        private bool isHovered;
+        private bool isClicked;
 
         private MeshRenderer mr;
         private Camera cam;
@@ -36,29 +31,48 @@ namespace Hex.Hex_Interaction
 
         private void Update()
         {
-            if (!IsCursorOnObject())
-            {
-                OnExit();
-                return;
-            }
+            bool hover = IsCursorOnObject();
+            bool click = Input.GetMouseButton(0);
             
-            OnHover();
+            if (hover && !isHovered) OnHover();
+            if (!hover && isHovered) OnExit();
+            if (click && !isClicked) OnClick();
+            if (!click && isClicked) OnRelease();
             
-            if (Input.GetMouseButton(0))
-                OnClick();
+            isHovered = hover;
+            isClicked = click;
         }
 
         public void OnHover() => Material = hoverMaterial;
-        public void OnClick() => Material = clickMaterial;
+
         public void OnExit() => Material = baseMaterial;
         
+        public void OnClick() => Material = isHovered ? clickMaterial : baseMaterial;
+
+        public void OnRelease() => Material = isHovered ? hoverMaterial : baseMaterial;
+
         public bool IsCursorOnObject() => 
             RaycastCursor_HexPlane(out Vector3 p) && WorldPointOnObject(p);
 
         public bool WorldPointOnObject(Vector3 point) => 
             hexagon.PointOnHex(transform.ToLocal(point));
 
+        
+        #region APPEARANCE
+        
+        public Material baseMaterial;
+        public Material hoverMaterial;
+        public Material clickMaterial;
 
+        private Material Material
+        {
+            get => mr.material;
+            set => mr.material = value;
+        }
+        
+        #endregion
+        
+        
         #region CURSOR RAYCASTING
 
         private Plane HexPlane => new(-transform.forward, transform.position);
@@ -73,25 +87,37 @@ namespace Hex.Hex_Interaction
         }
         
         #endregion
-        
-        
+
+
+        #region DEBUG
+
+        private const float PointSize = 0.05f;
 
         private void OnDrawGizmos()
         {
-            const float pointSize = 0.05f;
-            DrawGizmosCursorInHexPlane(pointSize);
-        }
-
-        private void DrawGizmosCursorInHexPlane(float pointSize = 0.05f)
-        {
             if (!RaycastCursor_HexPlane(out Vector3 p)) return;
-            bool pointOnHex = WorldPointOnObject(p);
-            Gizmos.color = pointOnHex ? Color.green : Color.red;
-            Gizmos.DrawSphere(p, pointSize);
             
-            Gizmos.color = pointOnHex ? Color.green : Color.red;
+            DrawGizmosCursorRaycastInHexPlane(p, PointSize);
+            
+            if (showWedges) DrawGizmosWedges(p);
+        }
+        
+        private void DrawGizmosCursorRaycastInHexPlane(Vector3 cursorInWorld, float pointSize = 0.05f)
+        {
+            Gizmos.color = isHovered ? Color.green : Color.red;
+            Gizmos.DrawSphere(cursorInWorld, pointSize);
             Gizmos.DrawLine(MouseRay.origin, MouseRay.origin + MouseRay.direction * 10);
         }
+        
+        private void DrawGizmosWedges(Vector3 cursorInWorld)
+        {
+            Hexagon.Orientation orientation = hexagon.PointOrientation(transform.ToLocal(cursorInWorld), out Vector2[] edge);
+            Vector3[] wedgeTri = edge.Select(e => transform.ToWorld(e)).ToArray().Append(transform.position).ToArray();
+            
+            Handles.color = isClicked ? Color.red : Color.yellow;
+            Handles.DrawAAConvexPolygon(wedgeTri);
+        }
 
+        #endregion
     }
 }
