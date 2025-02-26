@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using DavidUtils.ExtensionMethods;
 using DavidUtils.Geometry;
@@ -12,7 +13,9 @@ namespace Hex.Hex_Interaction
     {
         public Hexagon hexagon;
         
-        public bool showWedges = true;
+        public bool checkWedges = true;
+        public Hexagon.Orientation wedgeOrientation;
+        [FormerlySerializedAs("wedgePoints")] public Vector3[] wedgeTri;
         
         private bool isHovered;
         private bool isClicked;
@@ -31,7 +34,11 @@ namespace Hex.Hex_Interaction
 
         private void Update()
         {
-            bool hover = IsCursorOnObject();
+            bool cursorOnObject = checkWedges
+                ? IsCursorOnWedge()
+                : IsCursorOnObject();
+            
+            bool hover = cursorOnObject;
             bool click = Input.GetMouseButton(0);
             
             if (hover && !isHovered) OnHover();
@@ -57,7 +64,18 @@ namespace Hex.Hex_Interaction
         public bool WorldPointOnObject(Vector3 point) => 
             hexagon.PointOnHex(transform.ToLocal(point));
 
+        public bool IsCursorOnWedge()
+        {
+            Vector2[] localEdge = Array.Empty<Vector2>();
+            bool onWedge = RaycastCursor_HexPlane(out Vector3 p) &&
+                hexagon.PointOnWedge(transform.ToLocal(p), out wedgeOrientation, out localEdge);
+
+            wedgeTri = localEdge.Select(e => transform.ToWorld(e)).Append(transform.position).Reverse().ToArray();
+            
+            return onWedge;
+        }
         
+
         #region APPEARANCE
         
         public Material baseMaterial;
@@ -99,7 +117,7 @@ namespace Hex.Hex_Interaction
             
             DrawGizmosCursorRaycastInHexPlane(p, PointSize);
             
-            if (showWedges) DrawGizmosWedges(p);
+            if (checkWedges) DrawGizmosWedges();
         }
         
         private void DrawGizmosCursorRaycastInHexPlane(Vector3 cursorInWorld, float pointSize = 0.05f)
@@ -109,13 +127,15 @@ namespace Hex.Hex_Interaction
             Gizmos.DrawLine(MouseRay.origin, MouseRay.origin + MouseRay.direction * 10);
         }
         
-        private void DrawGizmosWedges(Vector3 cursorInWorld)
+        private void DrawGizmosWedges()
         {
-            Hexagon.Orientation orientation = hexagon.PointOrientation(transform.ToLocal(cursorInWorld), out Vector2[] edge);
-            Vector3[] wedgeTri = edge.Select(e => transform.ToWorld(e)).ToArray().Append(transform.position).ToArray();
-            
-            Handles.color = isClicked ? Color.red : Color.yellow;
+            Handles.color = Color.yellow;
             Handles.DrawAAConvexPolygon(wedgeTri);
+
+            if (!isHovered) return;
+            
+            Handles.color = Color.red;
+            Handles.DrawAAPolyLine(5, wedgeTri.Append(wedgeTri.First()).ToArray());
         }
 
         #endregion

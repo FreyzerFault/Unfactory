@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bb7c3050-1971-4f8c-955d-e44e323c63db" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Unfactory/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Unfactory/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/IInteractible.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/IInteractible.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Hex/Hex Interaction/HexInteractible.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Hex/Hex Interaction/HexInteractible.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Hex/Hexagon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Hex/Hexagon.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +115,7 @@
       <workItem from="1739828804262" duration="2597000" />
       <workItem from="1739895602092" duration="14232000" />
       <workItem from="1739916416456" duration="10827000" />
-      <workItem from="1740086715045" duration="10231000" />
+      <workItem from="1740086715045" duration="12083000" />
     </task>
     <task id="LOCAL-00001" summary="Hexagon Generator Fix">
       <option name="closed" value="true" />
